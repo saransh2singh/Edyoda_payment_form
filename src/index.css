@@ -4,6 +4,7 @@
 }
 body{
   background: url(..//public/bgimg.png);
+  background-size: cover;
   font-family: 'Raleway';
   
 }
@@ -119,7 +120,6 @@ cursor: pointer;
   align-items: center;
 justify-content: center;
   /* background: lightgray; */
-  border: 1.4px solid lightgray;
 border-radius: 2px;
 padding: 1em 2em;
 margin-bottom: 1em;
@@ -127,6 +127,31 @@ cursor: pointer;
 }
 .options--flex:hover{
   background-color: lightgray;
+}
+
+.prev{
+  border: 1.4px solid lightgray;
+  display: flex;
+  align-items: center;
+justify-content: center;
+  /* background: lightgray; */
+border-radius: 4px;
+padding: 1em 2em;
+margin-bottom: 1em;
+cursor: pointer;
+}
+.after{
+  border: 1.4px solid lightgray;
+  border: 2px solid #47BA68;
+  background-color: #47ba6824;
+  display: flex;
+  align-items: center;
+justify-content: center;
+  /* background: lightgray; */
+border-radius: 4px;
+padding: 1em 2em;
+margin-bottom: 1em;
+cursor: pointer;
 }
 
 .top{
@@ -302,6 +327,12 @@ padding-right: 15px;
   .main--right{
     width: 22em;
   }
+  .separate--price {
+    padding-right: 3em;
+  }
+  .prev{
+    padding: 1em;
+  }
 }
 @media all and (max-width: 1026px) {
   .main--right{
@@ -385,7 +416,18 @@ margin-left: 3em;
   .main--right{
     width: 19em;
     margin-left: 4em;
-    padding: 14px;
+    padding: 0 90px;
+  }
+  .separate--price {
+    padding-right: 2em;
+  }
+  .main--right{
+    padding: 1em 5em;
+margin: 0;
+margin-bottom: 4em;
+padding: 20px;
+width: 100%;
+
   }
 }
 
