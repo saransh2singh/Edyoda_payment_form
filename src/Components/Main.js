@@ -1,6 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import '../index.css';
 
 export default function Main(){
+
+    const [price,setPrice] = useState(0);
+    const [subsFee,setSubsFee] = useState(0);
+    const[discPrice,setDiscPrice] = useState(0);
+    const [style,setStyle] = useState("prev");
+    const [style1,setStyle1] = useState("prev");
+    const [style2,setStyle2] = useState("prev");
+    
+
+    function updatePrice1(){
+        setPrice(179);
+        setStyle("after");
+        setStyle1("prev");
+        setStyle2("prev");
+        setSubsFee(18500);
+        setDiscPrice(subsFee-price);
+    }
+    function updatePrice2(){
+        setPrice(149);
+        setStyle1("after");
+        setStyle("prev");
+        setStyle2("prev");
+        setSubsFee(18500);
+        setDiscPrice(subsFee-price);
+    }
+    function updatePrice3(){
+        setPrice(99);
+        setStyle2("after");
+        setStyle("prev");
+        setStyle1("prev");
+        setSubsFee(18500);
+        setDiscPrice(subsFee-price);
+    }
+
     return(
         <div className="main">
             <div className="main--left">
@@ -46,7 +81,7 @@ export default function Main(){
                 <h3 className="select--plan">Select your subscription plan</h3>
                 <div className="bottom">
                     <label className="firstt" for="first">
-                    <div className="options--flex old-value">
+                    <div className={"options--flex old-value"}>
                         <div className="separate--price">
                             <div className="top1">Offer Expired</div>
                         <input type="radio" id="first" name="plans" checked></input>
@@ -57,8 +92,8 @@ export default function Main(){
                             <div ><span className="bold">&#8377;8</span>   /mo</div>
                         </div>
                     </div></label>
-                    <label for="second">
-                    <div className="options--flex">
+                    <label for="second" onClick={updatePrice1}>
+                    <div className={style}>
                     <div className="separate--price">
                         <div className="top2">Recommended</div>
                         <input type="radio" className="check" id="second" name="plan"></input>
@@ -70,8 +105,8 @@ export default function Main(){
                     </div>
                     </div>
                     </label>
-                    <label className="third">
-                    <div className="options--flex">
+                    <label className="third" onClick={updatePrice2}>
+                    <div className={style1}>
                     <div className="separate--price">
                         <input type="radio" className="check" id="third" name="plan"></input>
                         <label for="third" className="bold">6 Months Subscription</label>
@@ -82,8 +117,8 @@ export default function Main(){
                     </div>
                     </div>
                     </label>
-                    <label className="fourth">
-                    <div className="options--flex">
+                    <label className="fourth" onClick={updatePrice3}>
+                    <div className={style2}>
                     {/* <div className="price--font">  */}
                     <div className="separate--price">  
                         <input type="radio" className="check" id="fourth" name="plan"></input>
@@ -102,13 +137,13 @@ export default function Main(){
                     <p>Subscription Fee</p>
                     </div>
                     <div className="bold--price">
-                        &#8377; 18,500
+                        &#8377; {subsFee}
                     </div>
                     </div>
                     <div className="limited--offer">
                     <div className="flex--bottom">
                         <div className="color--offer"><b>Limited time offer</b></div>
-                        <div className="bold--price">-&#8377; 18,401</div>
+                        <div className="bold--price">-&#8377; {discPrice}</div>
                     </div>
                     <div className="fl">
                     <img className="clock1" src="../clock1.png"></img>
@@ -117,7 +152,7 @@ export default function Main(){
                     </div>
                     <div className="flex--last">
                         <div><span className="wt">Total</span><span> (Incl. of 18% GST)</span></div>
-                        <div className="bold--price">&#8377;149</div>
+                        <div className="bold--price">&#8377;{price}</div>
                     </div>
                     <div className="items-flex">
                         <button className="btns btn1">CANCEL</button>
